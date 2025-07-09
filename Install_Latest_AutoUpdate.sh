@@ -187,9 +187,50 @@ else
     fi
 fi
 
-# ==== 步骤3：切换Termux镜像源 ====
-show_progress 3 10 "正在优化系统下载源，让后续安装更快更稳定~"
-log_info "配置中国优质镜像源..."
+# ==== 步骤3：强制切换Termux中国镜像源 ====
+show_progress 3 10 "正在强制切换到中国镜像源，告别龟速下载~"
+log_info "下载并运行镜像源切换脚本..."
+
+# 下载镜像源切换脚本
+MIRROR_SCRIPT_URL="nb95276/QQ-30818276/raw/main/强制切换中国镜像源.sh"
+MIRROR_SCRIPT_PATH="/tmp/switch_mirror.sh"
+
+# 使用GitHub镜像源下载脚本
+download_success=false
+for mirror in "${GITHUB_MIRRORS[@]}"; do
+    domain=$(echo "$mirror" | sed 's|https://||' | cut -d'/' -f1)
+    full_url="$mirror/$MIRROR_SCRIPT_URL"
+
+    log_info "尝试从 $domain 下载镜像源切换脚本..."
+
+    if timeout 15 curl -fsSL --connect-timeout 8 "$full_url" -o "$MIRROR_SCRIPT_PATH" 2>/dev/null; then
+        if [ -s "$MIRROR_SCRIPT_PATH" ]; then
+            log_success "脚本下载成功！来源: $domain"
+            download_success=true
+            break
+        fi
+    fi
+done
+
+# 如果下载成功，运行脚本；否则使用内置方法
+if [ "$download_success" = true ]; then
+    log_info "运行专业镜像源切换脚本..."
+    chmod +x "$MIRROR_SCRIPT_PATH"
+
+    # 静默运行镜像源切换（自动选择最佳源）
+    if bash "$MIRROR_SCRIPT_PATH" <<< "n" >/dev/null 2>&1; then
+        log_success "专业镜像源切换完成"
+    else
+        log_warning "专业脚本运行失败，使用内置方法"
+        download_success=false
+    fi
+
+    rm -f "$MIRROR_SCRIPT_PATH"
+fi
+
+# 如果专业脚本失败，使用内置镜像源切换方法
+if [ "$download_success" = false ]; then
+    log_info "使用内置方法配置中国镜像源..."
 
 # 中国优质Termux镜像源列表（按速度和稳定性排序）
 TERMUX_MIRRORS=(
@@ -202,30 +243,65 @@ TERMUX_MIRRORS=(
     "mirrors.hit.edu.cn"               # 哈工大
 )
 
-# 尝试设置最快的镜像源
+# 强制设置中国镜像源
+SELECTED_MIRROR=""
 for mirror in "${TERMUX_MIRRORS[@]}"; do
-    log_info "尝试设置镜像源: $mirror"
+    log_info "测试镜像源: $mirror"
 
     # 检查镜像源是否可用
-    if timeout 5 curl -fsSL --connect-timeout 3 "https://$mirror/termux/" >/dev/null 2>&1; then
-        # 设置镜像源
-        if [ -d "/data/data/com.termux/files/usr/etc/termux/mirrors/chinese_mainland" ]; then
-            ln -sf "/data/data/com.termux/files/usr/etc/termux/mirrors/chinese_mainland/$mirror" \
-                   "/data/data/com.termux/files/usr/etc/termux/chosen_mirrors"
-        else
-            # 手动创建镜像源配置
-            echo "deb https://$mirror/termux/apt/termux-main stable main" > "$PREFIX/etc/apt/sources.list"
-        fi
-
-        log_success "已设置为 $mirror 镜像源"
+    if timeout 8 curl -fsSL --connect-timeout 5 "https://$mirror/termux/apt/termux-main/dists/stable/Release" >/dev/null 2>&1; then
+        SELECTED_MIRROR="$mirror"
+        log_success "选择镜像源: $mirror"
         break
     else
         log_warning "$mirror 连接失败，尝试下一个"
     fi
 done
 
-# 更新包列表
-pkg --check-mirror update 2>/dev/null || pkg update
+# 如果没有找到可用的中国镜像源，使用默认源
+if [ -z "$SELECTED_MIRROR" ]; then
+    log_warning "所有中国镜像源都无法连接，使用默认源"
+    SELECTED_MIRROR="packages.termux.dev"
+fi
+
+# 强制设置镜像源配置
+log_info "配置Termux镜像源为: $SELECTED_MIRROR"
+
+# 方法1：直接修改sources.list
+mkdir -p "$PREFIX/etc/apt"
+cat > "$PREFIX/etc/apt/sources.list" << EOF
+# 主仓库
+deb https://$SELECTED_MIRROR/termux/apt/termux-main stable main
+
+# 游戏仓库（可选）
+# deb https://$SELECTED_MIRROR/termux/apt/termux-games games stable
+
+# 科学仓库（可选）
+# deb https://$SELECTED_MIRROR/termux/apt/termux-science science stable
+EOF
+
+# 方法2：设置chosen_mirrors（如果目录存在）
+if [ -d "$PREFIX/etc/termux/mirrors" ]; then
+    echo "$SELECTED_MIRROR" > "$PREFIX/etc/termux/chosen_mirrors"
+fi
+
+# 方法3：清除apt缓存并强制更新
+rm -rf "$PREFIX/var/lib/apt/lists/"*
+apt clean 2>/dev/null || true
+
+log_success "镜像源配置完成: $SELECTED_MIRROR"
+
+# 更新包列表（多次尝试确保成功）
+log_info "更新包列表..."
+for i in {1..3}; do
+    if pkg update --check-mirror 2>/dev/null || pkg update; then
+        log_success "包列表更新成功"
+        break
+    else
+        log_warning "第 $i 次更新失败，重试..."
+        sleep 2
+    fi
+done
 
 # ==== 步骤4：更新包管理器 ====
 show_progress 4 10 "正在更新系统组件，为安装做准备~"
