@@ -53,8 +53,8 @@ declare -A DESCRIPTIONS=(
 )
 
 # ==== 测试文件路径 ====
-TEST_FILE="你的用户名/SillyTavern-Termux/raw/main/README.md"
-INSTALL_SCRIPT="你的用户名/SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh"
+TEST_FILE="nb95276/QQ-30818276/raw/main/PROJECT_INFO.txt"
+INSTALL_SCRIPT="nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh"
 
 # ==== 速度测试函数 ====
 test_mirror_speed() {
@@ -184,7 +184,7 @@ EOF
 # 添加可用的镜像源到脚本
 for name in "${WORKING_MIRRORS[@]}"; do
     url="${MIRRORS[$name]}"
-    echo "    \"$url/你的用户名/SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh\"" >> "$SMART_INSTALL_SCRIPT"
+    echo "    \"$url/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh\"" >> "$SMART_INSTALL_SCRIPT"
 done
 
 cat >> "$SMART_INSTALL_SCRIPT" << 'EOF'

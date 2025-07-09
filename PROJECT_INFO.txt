@@ -40,17 +40,17 @@
 ## 8个加速安装命令
 
 ### 智能测速（推荐）
-curl -fsSL https://ghproxy.net/https://github.com/你的用户名/QQ-30818276/raw/main/测试镜像源速度.sh | bash
+curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/测试镜像源速度.sh | bash
 
 ### 直接安装（8选1）
-1. curl -fsSL https://ghproxy.net/https://github.com/你的用户名/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
-2. curl -fsSL https://gh.ddlc.top/https://github.com/你的用户名/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
-3. curl -fsSL https://ghfast.top/https://github.com/你的用户名/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
-4. curl -fsSL https://gh.h233.eu.org/https://github.com/你的用户名/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
-5. curl -fsSL https://hub.gitmirror.com/https://github.com/你的用户名/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
-6. curl -fsSL https://wget.la/https://github.com/你的用户名/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
-7. curl -fsSL https://gh-proxy.com/https://github.com/你的用户名/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
-8. curl -fsSL https://cors.isteed.cc/github.com/你的用户名/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+1. curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+2. curl -fsSL https://gh.ddlc.top/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+3. curl -fsSL https://ghfast.top/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+4. curl -fsSL https://gh.h233.eu.org/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+5. curl -fsSL https://hub.gitmirror.com/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+6. curl -fsSL https://wget.la/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+7. curl -fsSL https://gh-proxy.com/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+8. curl -fsSL https://cors.isteed.cc/github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
 
 ## 特色功能
 - 🚀 支持8个GitHub加速镜像源

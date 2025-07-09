@@ -24,8 +24,8 @@ cd E:\SillyTavern\SillyTavern-Termux-2.0.0
 # 初始化Git仓库
 git init
 
-# 添加远程仓库（替换为你的GitHub用户名）
-git remote add origin https://github.com/你的用户名/QQ-30818276.git
+# 添加远程仓库（已更新为实际用户名）
+git remote add origin https://github.com/nb95276/QQ-30818276.git
 
 # 检查当前状态
 git status
