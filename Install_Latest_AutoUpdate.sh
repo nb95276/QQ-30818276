@@ -234,13 +234,14 @@ if [ "$download_success" = false ]; then
 
 # 中国优质Termux镜像源列表（按速度和稳定性排序）
 TERMUX_MIRRORS=(
-    "mirrors.tuna.tsinghua.edu.cn"     # 清华大学
-    "mirrors.aliyun.com"               # 阿里云
-    "mirrors.pku.edu.cn"               # 北京大学
-    "mirrors.nju.edu.cn"               # 南京大学
-    "mirrors.zju.edu.cn"               # 浙江大学
-    "mirrors.ustc.edu.cn"              # 中科大
-    "mirrors.hit.edu.cn"               # 哈工大
+    "mirrors.tuna.tsinghua.edu.cn"
+    "mirrors.aliyun.com"
+    "mirrors.pku.edu.cn"
+    "mirrors.nju.edu.cn"
+    "mirrors.zju.edu.cn"
+    "mirrors.ustc.edu.cn"
+    "mirrors.hit.edu.cn"
+    "mirrors.bfsu.edu.cn"
 )
 
 # 强制设置中国镜像源
