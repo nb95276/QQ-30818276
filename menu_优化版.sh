@@ -227,8 +227,14 @@ while true; do
     echo -e "${YELLOW}${BOLD}3. 🎀 简单配置${NC}"
     echo -e "${MAGENTA}${BOLD}4. 🆘 遇到问题？${NC}"
     echo -e "${CYAN}${BOLD}=================================${NC}"
-    echo -ne "${CYAN}${BOLD}💕 请选择操作（0-4）：${NC}"
-    read -n1 choice; echo
+    echo -ne "${CYAN}${BOLD}💕 请选择操作（0-4）[默认1-启动酒馆]：${NC}"
+    read -t 5 -n1 choice; echo
+
+    # 如果5秒内没有输入，默认选择1
+    if [ -z "$choice" ]; then
+        choice="1"
+        echo -e "${GREEN}${BOLD}>> ⏰ 5秒未选择，自动启动SillyTavern...${NC}"
+    fi
     
     case "$choice" in
         0) 

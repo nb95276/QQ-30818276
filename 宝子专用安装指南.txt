@@ -1,4 +1,4 @@
-# 🌸 SillyTavern 小白专用安装指南 🌸
+# 🌸 SillyTavern 宝子专用安装指南 🌸
 
 ## 💕 超级简单！只需要3步！
 
@@ -46,4 +46,4 @@ curl -fsSL https://hub.gitmirror.com/https://github.com/nb95276/QQ-30818276/raw/
 如果安装失败，重新运行上面的命令即可！
 
 ---
-*专为小白用户设计，让AI聊天变得简单！😸💕*
+*专为宝子们设计，让AI聊天变得简单！😸💕*

@@ -670,8 +670,14 @@ while true; do
     echo -e "${BRIGHT_BLUE}${BOLD}6. 🧩 安装强化插件${NC}"
     echo -e "${BRIGHT_MAGENTA}${BOLD}7. 🔄 更新管理脚本${NC}"
     echo -e "${CYAN}${BOLD}=================================${NC}"
-    echo -ne "${CYAN}${BOLD}💕 请选择操作（0-7）：${NC}"
-    read -n1 choice; echo
+    echo -ne "${CYAN}${BOLD}💕 请选择操作（0-7）[默认1-启动酒馆]：${NC}"
+    read -t 5 -n1 choice; echo
+
+    # 如果5秒内没有输入，默认选择1
+    if [ -z "$choice" ]; then
+        choice="1"
+        echo -e "${GREEN}${BOLD}>> ⏰ 5秒未选择，自动启动SillyTavern...${NC}"
+    fi
     
     case "$choice" in
         0)
