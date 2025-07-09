@@ -133,14 +133,11 @@ if [ "$npm_mirror_set" = false ]; then
     log_warning "所有npm镜像源都无法连接，将使用默认源"
 fi
 
-# 设置其他npm优化配置
+# 设置其他npm优化配置（只设置有效的配置项）
 if command -v npm >/dev/null 2>&1; then
     log_info "配置npm优化设置..."
-    npm config set disturl https://npmmirror.com/mirrors/node/
-    npm config set electron_mirror https://npmmirror.com/mirrors/electron/
-    npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/
-    npm config set phantomjs_cdnurl https://npmmirror.com/mirrors/phantomjs/
-    npm config set python_mirror https://npmmirror.com/mirrors/python/
+    npm config set disturl https://npmmirror.com/mirrors/node/ 2>/dev/null || true
+    npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/ 2>/dev/null || true
     log_success "npm优化配置完成"
 fi
 

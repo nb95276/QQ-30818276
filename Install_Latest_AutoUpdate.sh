@@ -273,11 +273,9 @@ for npm_mirror in "${NPM_MIRRORS[@]}"; do
     fi
 done
 
-# 设置其他npm优化配置
-npm config set disturl https://npmmirror.com/mirrors/node/
-npm config set electron_mirror https://npmmirror.com/mirrors/electron/
-npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/
-npm config set phantomjs_cdnurl https://npmmirror.com/mirrors/phantomjs/
+# 设置其他npm优化配置（只设置有效的配置项）
+npm config set disturl https://npmmirror.com/mirrors/node/ 2>/dev/null || true
+npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/ 2>/dev/null || true
 
 # ==== 智能下载函数 ====
 smart_download() {
