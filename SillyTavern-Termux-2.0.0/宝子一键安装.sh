@@ -105,14 +105,20 @@ for mirror in "${INSTALL_MIRRORS[@]}"; do
     mirror_name=$(echo "$mirror" | sed 's|https://||' | cut -d'/' -f1)
     echo -e "${YELLOW}${BOLD}🔄 尝试镜像源: $mirror_name${NC}"
     
-    if timeout 30 curl -fsSL --connect-timeout 10 --max-time 30 "$mirror" | bash; then
-        install_success=true
-        echo -e "${GREEN}${BOLD}✅ 安装成功！使用镜像源: $mirror_name${NC}"
-        break
-    else
-        echo -e "${RED}${BOLD}❌ 镜像源失败: $mirror_name${NC}"
-        echo -e "${YELLOW}${BOLD}🔄 尝试下一个镜像源...${NC}"
+    # 先下载到临时文件
+    if curl -fsSL --connect-timeout 10 --max-time 30 "$mirror" -o "/tmp/install_core.sh"; then
+        # 然后执行临时文件
+        if bash "/tmp/install_core.sh"; then
+            install_success=true
+            echo -e "${GREEN}${BOLD}✅ 安装成功！使用镜像源: $mirror_name${NC}"
+            rm -f "/tmp/install_core.sh" # 清理临时文件
+            break
+        fi
     fi
+
+    echo -e "${RED}${BOLD}❌ 镜像源失败: $mirror_name${NC}"
+    echo -e "${YELLOW}${BOLD}🔄 尝试下一个镜像源...${NC}"
+    rm -f "/tmp/install_core.sh" # 清理失败的下载
 done
 
 # ==== 安装结果处理 ====
