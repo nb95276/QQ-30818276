@@ -420,7 +420,7 @@ echo "5. 🛠️ 重新安装依赖"
 echo "6. ❌ 退出"
 echo ""
 
-read -p "请选择 (1-6): " choice
+read -p "请选择 [1-6]: " choice
 
 case $choice in
     1)
@@ -511,7 +511,7 @@ if ! npm install --no-audit --no-fund --loglevel=error --no-progress --omit=dev;
 
     if ! npm install --no-audit --no-fund --loglevel=error --no-progress --omit=dev; then
         log_error "依赖安装失败，请检查网络连接"
-        log_info "可以稍后运行菜单中的"重新安装依赖"选项"
+        log_info "可以稍后运行菜单中的[重新安装依赖]选项"
     else
         log_success "依赖安装成功（重试后）"
     fi
