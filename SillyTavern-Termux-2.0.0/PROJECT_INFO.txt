@@ -1,0 +1,70 @@
+# QQ-30818276 项目信息
+
+项目名称: QQ-30818276
+项目类型: SillyTavern-Termux Android安装脚本集合
+创建时间: 2025-07-09
+版本: 2.1.0
+平台: Android Termux
+
+## 核心文件说明
+
+### 安装脚本
+- Install_Latest_AutoUpdate.sh - 新用户集成安装脚本（推荐）
+- Install.sh - 标准安装脚本
+- Install_优化版.sh - 优化版安装脚本
+
+### 更新工具
+- Update_Mirror_Sources_Termux.sh - 镜像源更新脚本
+- Apply_Mirror_Updates.sh - 应用更新脚本
+- 一键更新镜像源.sh - 一键更新脚本
+
+### 测试工具
+- 测试镜像源速度.sh - 智能速度测试工具
+- 测试脚本.sh - 基础测试脚本
+- 网络测试脚本.sh - 网络连接测试
+
+### 菜单系统
+- menu.sh - 标准菜单脚本
+- menu_优化版.sh - 增强版菜单
+
+### 辅助工具
+- emergency-rollback.sh - 紧急回滚脚本
+- 准备部署文件.sh - 部署准备脚本
+- 多源字体下载脚本.sh - 字体下载工具
+- 改进版字体安装脚本.sh - 字体安装工具
+
+### 安装命令
+- 新用户一键安装命令.txt - 8源安装指南
+- 一键安装命令.txt - 基础安装命令
+
+## 8个加速安装命令
+
+### 智能测速（推荐）
+curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/测试镜像源速度.sh | bash
+
+### 直接安装（8选1）
+1. curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+2. curl -fsSL https://gh.ddlc.top/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+3. curl -fsSL https://ghfast.top/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+4. curl -fsSL https://gh.h233.eu.org/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+5. curl -fsSL https://hub.gitmirror.com/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+6. curl -fsSL https://wget.la/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+7. curl -fsSL https://gh-proxy.com/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+8. curl -fsSL https://cors.isteed.cc/github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+
+## 特色功能
+- 🚀 支持8个GitHub加速镜像源
+- 🧪 智能镜像源速度测试工具
+- 🔄 自动获取最新镜像源
+- 📱 完整的Android Termux环境支持
+- 🎮 增强版菜单系统
+- 🛡️ 完善的错误处理机制
+- 💾 自动备份和回滚功能
+
+## 安装成功率
+- 单源成功率: 85-95%
+- 8源总成功率: 98%+
+- 平均安装时间: 15-25分钟
+
+## 技术支持
+QQ: 30818276

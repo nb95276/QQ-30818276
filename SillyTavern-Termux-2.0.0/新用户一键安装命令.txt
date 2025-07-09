@@ -1,0 +1,250 @@
+# 🌸 SillyTavern-Termux 新用户一键安装命�?🌸
+
+## 🚀 智能选择最快源（强烈推荐）
+
+### 方法零：自动测试并选择最快源
+```bash
+# 下载并运行镜像源速度测试工具
+curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/测试镜像源速度.sh | bash
+```
+
+**特点�?*
+- 🧪 自动测试8个镜像源的速度
+- 🎯 智能推荐最快的安装命令
+- 📊 生成个性化的安装脚�?- �?一键安装，自动选择最佳源
+
+## 💕 8个加速链接任选其一（手动选择�?
+### 🥇 一线加速源（速度最快，优先推荐�?
+#### 1. ghproxy.net（英国伦敦）
+```bash
+curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+#### 2. gh.ddlc.top（美�?Cloudflare CDN�?```bash
+curl -fsSL https://gh.ddlc.top/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+#### 3. ghfast.top（多节点CDN�?```bash
+curl -fsSL https://ghfast.top/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+### 🥈 二线加速源（稳定可靠）
+
+#### 4. gh.h233.eu.org（美�?Cloudflare CDN�?```bash
+curl -fsSL https://gh.h233.eu.org/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+#### 5. hub.gitmirror.com（美�?Cloudflare CDN�?```bash
+curl -fsSL https://hub.gitmirror.com/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+#### 6. wget.la（香�?台湾/日本/美国 CDN�?```bash
+curl -fsSL https://wget.la/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+### 🥉 备用加速源（应急使用）
+
+#### 7. gh-proxy.com（美�?Cloudflare CDN�?```bash
+curl -fsSL https://gh-proxy.com/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+#### 8. cors.isteed.cc（美�?Cloudflare CDN�?```bash
+curl -fsSL https://cors.isteed.cc/github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+## 🎯 智能选择建议
+
+### 📍 根据地理位置选择
+- 🇨🇳 **中国大陆用户**：推�?1�?�?�?
+- 🇭🇰 **香港/台湾用户**：推�?6�?�?�?
+- 🇯🇵 **日本用户**：推�?3�?�?�?
+- 🇺🇸 **美国用户**：推�?2�?�?�?
+- 🌍 **其他地区**：推�?1�?�?�?
+
+### �?根据时间段选择
+- 🌅 **早上6-12�?*：推荐美国节�?2�?�?�?
+- 🌞 **下午12-18�?*：推荐亚洲节�?1�?�?
+- 🌙 **晚上18-24�?*：推荐欧洲节�?1�?
+- 🌃 **深夜0-6�?*：推荐美国节�?2�?�?�?
+
+## 🎯 新版本特色功�?
+### �?内置镜像源自动更�?- 🔄 安装时自动获取最新最快的GitHub镜像�?- 🚀 无需手动配置，直接享受最佳下载速度
+- 📱 专为Android Termux环境优化
+
+### 🌟 增强版菜单系�?- 🎮 友好的交互界�?- 🔧 一键更新SillyTavern
+- 🌐 一键更新镜像源
+- 📊 系统信息查看
+- 🛠�?依赖重新安装
+
+### 💖 智能安装流程
+- 🧠 自动环境检�?- 📦 自动安装必要工具
+- 🔄 多源下载确保成功
+- 💾 自动配置和备�?
+## 📋 安装前准�?
+### 1. 确保Termux环境
+- �?已安装Termux应用
+- �?已获取存储权限（脚本会自动处理）
+- �?网络连接正常
+
+### 2. 推荐设置
+- 📶 使用WiFi网络（比移动数据更稳定）
+- 🕐 避开网络高峰期（晚上8-10点）
+- 🔋 确保电量充足（安装需�?0-20分钟�?
+## 🚀 安装过程说明
+
+### 自动化步骤（无需手动操作�?1. 🔍 环境检测和工具安装
+2. 🌐 获取最新GitHub镜像�?3. 📦 切换系统镜像�?4. 🔄 更新包管理器
+5. 🟢 安装Node.js环境
+6. 📥 下载SillyTavern程序
+7. 🎮 创建增强版菜�?8. ⚙️ 配置自动启动
+9. 📦 安装程序依赖
+10. 💾 保存配置文件
+
+### 预计时间
+- ⏱️ 总时间：10-20分钟
+- 🌐 网络下载�?-10分钟
+- 📦 依赖安装�?-10分钟
+
+## 🎨 安装后的使用
+
+### 自动启动
+- 🔄 重启Termux后自动进入菜�?- 🎮 选择"启动SillyTavern"开始使�?
+### 手动启动
+```bash
+# 如果没有自动启动，可以手动运�?bash ~/menu.sh
+```
+
+### 直接启动SillyTavern
+```bash
+cd ~/SillyTavern && node server.js
+```
+
+## 🔧 高级选项
+
+### 🔄 多源智能下载（推荐方法）
+```bash
+# 自动尝试多个源，直到成功为止
+for url in \
+  "https://ghproxy.net/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh" \
+  "https://gh.ddlc.top/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh" \
+  "https://ghfast.top/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh" \
+  "https://gh.h233.eu.org/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh"; do
+  echo "🔄 尝试�? $(echo $url | cut -d'/' -f3)"
+  if curl -fsSL --connect-timeout 10 --max-time 30 "$url" | bash; then
+    echo "�?安装成功�?
+    break
+  else
+    echo "�?失败，尝试下一个源..."
+  fi
+done
+```
+
+### 📥 下载后运行（离线安装�?```bash
+# 先下载脚本文�?curl -fsSL -o ~/install_sillytavern.sh https://ghproxy.net/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh
+
+# 检查文件是否下载成�?ls -la ~/install_sillytavern.sh
+
+# 运行安装脚本
+bash ~/install_sillytavern.sh
+```
+
+### 🛠�?自定义安装选项（高级用户）
+```bash
+# 跳过依赖安装（如果已经安装过�?export SKIP_DEPS=true
+curl -fsSL https://ghproxy.net/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+
+# 使用特定的npm镜像�?export NPM_REGISTRY="https://registry.npmmirror.com/"
+curl -fsSL https://gh.ddlc.top/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+
+# 启用详细日志模式
+export VERBOSE_MODE=true
+curl -fsSL https://ghfast.top/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+## 🐛 故障排除
+
+### 常见问题
+
+**Q: 第一个源下载失败怎么办？**
+```bash
+# 解决方案：按顺序尝试其他7个源
+# �?失败 �?尝试�?
+curl -fsSL https://gh.ddlc.top/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+
+# �?失败 �?尝试�?
+curl -fsSL https://ghfast.top/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+
+# �?失败 �?尝试�?
+curl -fsSL https://gh.h233.eu.org/https://github.com/你的用户�?SillyTavern-Termux/raw/main/Install_Latest_AutoUpdate.sh | bash
+```
+
+**Q: 所有源都很慢怎么办？**
+```bash
+# 解决方案1：更换网络环�?# - 切换到WiFi网络
+# - 尝试不同时间�?# - 使用移动热点
+
+# 解决方案2：使用多源智能下�?# （参考上面的多源智能下载方法�?```
+
+**Q: 下载中断或失�?*
+```bash
+# 解决方案：清理后重新安装
+rm -rf ~/SillyTavern ~/menu.sh ~/.env
+pkg clean
+# 然后重新运行安装命令
+```
+
+**Q: 权限错误**
+```bash
+# 解决方案：确保在Termux中运�?echo $PREFIX
+# 应该显示�?data/data/com.termux/files/usr
+
+# 如果不是，请在Termux应用中运�?```
+
+**Q: 依赖安装失败**
+```bash
+# 解决方案：手动安装基础依赖
+pkg update
+pkg install -y nodejs-lts git curl zip
+
+# 检查安装结�?node --version
+git --version
+curl --version
+```
+
+**Q: 特定镜像源无法访�?*
+```bash
+# 解决方案：测试镜像源可用�?curl -I --connect-timeout 5 https://ghproxy.net/
+curl -I --connect-timeout 5 https://gh.ddlc.top/
+curl -I --connect-timeout 5 https://ghfast.top/
+
+# 选择响应最快的源使�?```
+
+### 获取帮助
+- 📖 查看安装日志中的错误信息
+- 🔄 尝试重新运行安装脚本
+- 💬 查看相关文档和FAQ
+
+## 🌟 与旧版本的区�?
+### 旧版本（需要手动更新）
+- �?使用固定的镜像源列表
+- �?需要手动更新镜像源
+- �?基础菜单功能
+
+### 新版本（自动更新�?- �?自动获取最新镜像源
+- �?内置镜像源更新功�?- �?增强版菜单系�?- �?智能安装流程
+- �?完善的错误处�?
+## 💖 贴心提醒
+
+1. **首次安装**：建议使用WiFi网络，确保稳定�?2. **耐心等待**：依赖安装可能需要几分钟，请不要中断
+3. **定期更新**：使用菜单中的更新功能保持最新版�?4. **备份重要**：重要聊天记录请及时备份
+
+---
+
+*让SillyTavern安装变得简单！专为小红书姐妹们优化！😸�?
+
+## 📞 技术支�?
+遇到问题时：
+1. 📋 查看安装日志
+2. 🔄 尝试重新安装
+3. 💬 查看故障排除部分
+4. 📖 阅读详细文档
