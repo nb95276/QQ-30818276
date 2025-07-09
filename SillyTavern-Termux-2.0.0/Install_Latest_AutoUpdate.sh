@@ -51,7 +51,7 @@ echo "🎯 专为中国用户优化，速度超快"
 echo "=================================================="
 echo -e "${NC}"
 
-echo -e "${YELLOW}${BOLD}💡 小白用户须知：${NC}"
+echo -e "${YELLOW}${BOLD}💡 姐妹们请看这里~：${NC}"
 echo -e "${GREEN}  ✅ 本脚本完全自动化，无需手动操作${NC}"
 echo -e "${GREEN}  ✅ 安装时间约15-20分钟，请耐心等待${NC}"
 echo -e "${GREEN}  ✅ 安装过程中请不要关闭Termux${NC}"
