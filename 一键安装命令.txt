@@ -1,38 +1,42 @@
-SillyTavern-Termux 小红书专版 - 11个一键安装命令（按测速排序）
+🌸 SillyTavern-Termux 宝子专用一键安装命令 🌸
 =================================================================
 
-🌟 推荐命令（最快 788ms）：
-curl -k -fsSL -o Install.sh https://gitproxy.click/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+💕 宝子们，复制下面的命令，粘贴到Termux里，按回车就行啦！
 
-⚡ 备用命令1（快速 1058ms）：
-curl -k -fsSL -o Install.sh https://github.tbedu.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+📱 最新版安装命令（选择一个即可）：
 
-🔥 备用命令2（稳定 1247ms）：
-curl -k -fsSL -o Install.sh https://gh.llkk.cc/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+🌟 推荐命令（最新优化版）：
+curl -fsSL https://ghfast.top/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
 
-💎 备用命令3（经典推荐）：
-curl -k -fsSL -o Install.sh https://gh.ddlc.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+⚡ 备用命令1：
+curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
 
-🛡️ 备用命令4：
-curl -k -fsSL -o Install.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+🔥 备用命令2：
+curl -fsSL https://gh.ddlc.top/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
 
-🌐 备用命令5：
-curl -k -fsSL -o Install.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+💎 备用命令3：
+curl -fsSL https://hub.gitmirror.com/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh | bash
 
-🔗 备用命令6：
-curl -k -fsSL -o Install.sh https://ghproxy.cfd/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+✨ 最新优化特色：
+- 🚀 强制切换中国镜像源，告别龟速下载！
+- 🇨🇳 智能选择最快镜像（清华、阿里云、北大等）
+- ⚡ 自动测试镜像源速度，选择最优配置
+- 📱 完全适配Android Termux环境
+- 🎯 安装完成后5秒自动启动SillyTavern
+- 💝 宝子专用，真正的一键到底！
 
-🌸 备用命令7：
-curl -k -fsSL -o Install.sh https://hub.gitmirror.com/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+🎮 安装完成后：
+- 5秒后自动启动（或手动选择1）
+- 自动打开浏览器到：http://localhost:8000
+- 直接开始和AI聊天，无需额外操作！
 
-🎀 备用命令8：
-curl -k -fsSL -o Install.sh https://mirrors.chenby.cn/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+🔧 额外工具命令：
 
-🌍 备用命令9（海外用户）：
-curl -k -fsSL -o Install.sh https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+📊 检查镜像源状态：
+curl -fsSL https://ghfast.top/https://github.com/nb95276/QQ-30818276/raw/main/检查镜像源状态.sh | bash
 
-⚠️ 备用命令10（最后选择）：
-curl -k -fsSL -o Install.sh https://ghproxy.net/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+🔄 强制切换中国镜像源：
+curl -fsSL https://ghfast.top/https://github.com/nb95276/QQ-30818276/raw/main/强制切换中国镜像源.sh | bash
 
 =================================================
 使用说明：
