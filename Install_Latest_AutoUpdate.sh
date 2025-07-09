@@ -174,11 +174,43 @@ fi
 
 # ==== 步骤3：切换Termux镜像源 ====
 show_progress 3 10 "正在优化系统下载源，让后续安装更快更稳定~"
-log_info "切换到清华镜像源..."
+log_info "配置中国优质镜像源..."
 
-ln -sf /data/data/com.termux/files/usr/etc/termux/mirrors/chinese_mainland/mirrors.tuna.tsinghua.edu.cn /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
-pkg --check-mirror update
-log_success "已切换为清华镜像源"
+# 中国优质Termux镜像源列表（按速度和稳定性排序）
+TERMUX_MIRRORS=(
+    "mirrors.tuna.tsinghua.edu.cn"     # 清华大学
+    "mirrors.aliyun.com"               # 阿里云
+    "mirrors.pku.edu.cn"               # 北京大学
+    "mirrors.nju.edu.cn"               # 南京大学
+    "mirrors.zju.edu.cn"               # 浙江大学
+    "mirrors.ustc.edu.cn"              # 中科大
+    "mirrors.hit.edu.cn"               # 哈工大
+)
+
+# 尝试设置最快的镜像源
+for mirror in "${TERMUX_MIRRORS[@]}"; do
+    log_info "尝试设置镜像源: $mirror"
+
+    # 检查镜像源是否可用
+    if timeout 5 curl -fsSL --connect-timeout 3 "https://$mirror/termux/" >/dev/null 2>&1; then
+        # 设置镜像源
+        if [ -d "/data/data/com.termux/files/usr/etc/termux/mirrors/chinese_mainland" ]; then
+            ln -sf "/data/data/com.termux/files/usr/etc/termux/mirrors/chinese_mainland/$mirror" \
+                   "/data/data/com.termux/files/usr/etc/termux/chosen_mirrors"
+        else
+            # 手动创建镜像源配置
+            echo "deb https://$mirror/termux/apt/termux-main stable main" > "$PREFIX/etc/apt/sources.list"
+        fi
+
+        log_success "已设置为 $mirror 镜像源"
+        break
+    else
+        log_warning "$mirror 连接失败，尝试下一个"
+    fi
+done
+
+# 更新包列表
+pkg --check-mirror update 2>/dev/null || pkg update
 
 # ==== 步骤4：更新包管理器 ====
 show_progress 4 10 "正在更新系统组件，为安装做准备~"
@@ -204,8 +236,33 @@ else
     log_success "Node.js已安装，跳过"
 fi
 
+# 配置npm中国镜像源
 npm config set prefix "$PREFIX"
-npm config set registry https://registry.npmmirror.com/
+
+# 中国优质npm镜像源列表
+NPM_MIRRORS=(
+    "https://registry.npmmirror.com/"          # 阿里云npm镜像（推荐）
+    "https://mirrors.cloud.tencent.com/npm/"   # 腾讯云npm镜像
+    "https://mirrors.huaweicloud.com/repository/npm/" # 华为云npm镜像
+    "https://registry.npm.taobao.org/"         # 淘宝npm镜像（备用）
+)
+
+# 尝试设置最快的npm镜像源
+for npm_mirror in "${NPM_MIRRORS[@]}"; do
+    log_info "测试npm镜像源: $(echo "$npm_mirror" | sed 's|https://||' | cut -d'/' -f1)"
+
+    if timeout 5 curl -fsSL --connect-timeout 3 "$npm_mirror" >/dev/null 2>&1; then
+        npm config set registry "$npm_mirror"
+        log_success "已设置npm镜像源: $(echo "$npm_mirror" | sed 's|https://||' | cut -d'/' -f1)"
+        break
+    fi
+done
+
+# 设置其他npm优化配置
+npm config set disturl https://npmmirror.com/mirrors/node/
+npm config set electron_mirror https://npmmirror.com/mirrors/electron/
+npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/
+npm config set phantomjs_cdnurl https://npmmirror.com/mirrors/phantomjs/
 
 # ==== 智能下载函数 ====
 smart_download() {

@@ -105,14 +105,39 @@ fi
 echo -e "${GREEN}${BOLD}>> 🎉 步骤 1/8 完成：环境检测通过。${NC}"
 
 # =========================================================================
-# 步骤 2/8：切换 Termux 镜像源为清华源
+# 步骤 2/8：切换 Termux 镜像源为中国优质源
 # =========================================================================
-echo -e "\n${CYAN}${BOLD}==== 步骤 2/8：切换 Termux 镜像源为清华源 ====${NC}"
+echo -e "\n${CYAN}${BOLD}==== 步骤 2/8：切换 Termux 镜像源为中国优质源 ====${NC}"
 echo -e "${YELLOW}${BOLD}💕 正在切换到国内镜像源，提升下载速度...${NC}"
 
-ln -sf /data/data/com.termux/files/usr/etc/termux/mirrors/chinese_mainland/mirrors.tuna.tsinghua.edu.cn /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
-pkg --check-mirror update
-echo -e "${GREEN}${BOLD}>> 🚀 步骤 2/8 完成：已切换为清华镜像源。${NC}"
+# 中国优质Termux镜像源列表
+TERMUX_MIRRORS=(
+    "mirrors.tuna.tsinghua.edu.cn"     # 清华大学
+    "mirrors.aliyun.com"               # 阿里云
+    "mirrors.pku.edu.cn"               # 北京大学
+    "mirrors.nju.edu.cn"               # 南京大学
+    "mirrors.zju.edu.cn"               # 浙江大学
+)
+
+# 智能选择最快的镜像源
+for mirror in "${TERMUX_MIRRORS[@]}"; do
+    echo -e "${YELLOW}${BOLD}>> 🔄 尝试设置镜像源: $mirror${NC}"
+
+    if timeout 5 curl -fsSL --connect-timeout 3 "https://$mirror/termux/" >/dev/null 2>&1; then
+        if [ -d "/data/data/com.termux/files/usr/etc/termux/mirrors/chinese_mainland" ]; then
+            ln -sf "/data/data/com.termux/files/usr/etc/termux/mirrors/chinese_mainland/$mirror" \
+                   "/data/data/com.termux/files/usr/etc/termux/chosen_mirrors"
+        else
+            echo "deb https://$mirror/termux/apt/termux-main stable main" > "$PREFIX/etc/apt/sources.list"
+        fi
+
+        echo -e "${GREEN}${BOLD}>> ✅ 已设置为 $mirror 镜像源${NC}"
+        break
+    fi
+done
+
+pkg --check-mirror update 2>/dev/null || pkg update
+echo -e "${GREEN}${BOLD}>> 🚀 步骤 2/8 完成：已切换为中国优质镜像源。${NC}"
 
 # =========================================================================
 # 步骤 3/8：更新包管理器
@@ -260,7 +285,24 @@ echo -e "${CYAN}${BOLD}⏰ 这个步骤可能需要5-10分钟，请耐心等待�
 
 cd "$HOME/SillyTavern" || { echo -e "${RED}${BOLD}>> 💔 进入 SillyTavern 目录失败！${NC}"; exit 1; }
 rm -rf node_modules
-npm config set registry https://registry.npmmirror.com/
+# 智能选择最快的npm镜像源
+NPM_MIRRORS=(
+    "https://registry.npmmirror.com/"          # 阿里云npm镜像
+    "https://mirrors.cloud.tencent.com/npm/"   # 腾讯云npm镜像
+    "https://mirrors.huaweicloud.com/repository/npm/" # 华为云npm镜像
+)
+
+for npm_mirror in "${NPM_MIRRORS[@]}"; do
+    mirror_name=$(echo "$npm_mirror" | sed 's|https://||' | cut -d'/' -f1)
+    echo -e "${YELLOW}${BOLD}>> 🔄 测试npm镜像源: $mirror_name${NC}"
+
+    if timeout 5 curl -fsSL --connect-timeout 3 "$npm_mirror" >/dev/null 2>&1; then
+        npm config set registry "$npm_mirror"
+        echo -e "${GREEN}${BOLD}>> ✅ 已设置npm镜像源: $mirror_name${NC}"
+        break
+    fi
+done
+
 export NODE_ENV=production
 
 echo -e "${CYAN}${BOLD}>> 📦 开始安装依赖包，请不要关闭应用...${NC}"
