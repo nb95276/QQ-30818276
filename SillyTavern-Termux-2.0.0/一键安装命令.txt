@@ -1,1 +1,1 @@
-curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh -o /tmp/install.sh && bash /tmp/install.sh
+cd ~ && curl -fsSL https://ghproxy.net/https://github.com/nb95276/QQ-30818276/raw/main/Install_Latest_AutoUpdate.sh -o install.sh && bash install.sh
