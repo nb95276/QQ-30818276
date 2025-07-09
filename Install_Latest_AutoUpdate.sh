@@ -44,11 +44,20 @@ show_progress() {
 # ==== 显示标题 ====
 echo -e "${CYAN}${BOLD}"
 echo "=================================================="
-echo "🌸 SillyTavern-Termux 最新版安装脚本 🌸"
-echo "💕 专为新用户优化，内置镜像源自动更新"
-echo "✨ 让你从第一次安装就享受最快速度"
+echo "🌸 SillyTavern 小白专用安装脚本 🌸"
+echo "💕 复制粘贴回车，就这么简单！"
+echo "✨ 全自动安装，无需任何操作"
+echo "🎯 专为中国用户优化，速度超快"
 echo "=================================================="
 echo -e "${NC}"
+
+echo -e "${YELLOW}${BOLD}💡 小白用户须知：${NC}"
+echo -e "${GREEN}  ✅ 本脚本完全自动化，无需手动操作${NC}"
+echo -e "${GREEN}  ✅ 安装时间约15-20分钟，请耐心等待${NC}"
+echo -e "${GREEN}  ✅ 安装过程中请不要关闭Termux${NC}"
+echo -e "${GREEN}  ✅ 建议连接WiFi网络，确保稳定性${NC}"
+echo -e "${GREEN}  ✅ 安装完成后会自动进入菜单${NC}"
+echo ""
 
 # ==== 环境检测 ====
 show_progress 1 10 "正在检查你的手机环境，确保一切准备就绪~"
@@ -89,12 +98,18 @@ fi
 # ==== 获取存储权限 ====
 STORAGE_DIR="$HOME/storage/shared"
 if [ ! -d "$STORAGE_DIR" ]; then
-    log_info "获取存储权限..."
+    log_info "自动获取存储权限..."
     if command -v termux-setup-storage >/dev/null 2>&1; then
-        termux-setup-storage
-        log_info "请在弹出的窗口中点击"允许"授权..."
+        echo -e "${YELLOW}${BOLD}📱 即将弹出权限请求窗口${NC}"
+        echo -e "${GREEN}${BOLD}💡 请点击"允许"按钮授权存储权限${NC}"
+        echo -e "${CYAN}${BOLD}⏰ 3秒后自动继续...${NC}"
         sleep 3
+        termux-setup-storage
+        sleep 2
+        log_success "存储权限配置完成"
     fi
+else
+    log_success "存储权限已配置"
 fi
 
 # ==== 步骤2：自动获取最新GitHub镜像源 ====
@@ -540,12 +555,23 @@ log_success "镜像源配置已保存"
 # ==== 安装完成 ====
 echo ""
 echo -e "${GREEN}${BOLD}"
-echo "🎉🎉🎉 恭喜！SillyTavern安装完成！🎉🎉🎉"
-echo "✨ 你现在拥有了最新最快的版本"
-echo "💕 内置镜像源自动更新，永远保持最佳速度"
-echo "🌸 感谢使用Mio的最新版安装脚本"
+echo "🎉🎉🎉 恭喜小白！SillyTavern安装成功！🎉🎉🎉"
+echo "✨ 你现在可以和AI聊天了！"
+echo "💕 安装过程完全自动化，是不是很简单？"
+echo "🌸 接下来只需要按任意键进入菜单"
 echo "=================================================="
 echo -e "${NC}"
+
+echo -e "${YELLOW}${BOLD}🎯 小白用户下一步操作指南：${NC}"
+echo -e "${GREEN}${BOLD}1. 按任意键进入菜单${NC}"
+echo -e "${GREEN}${BOLD}2. 选择"1. 🚀 启动 SillyTavern"${NC}"
+echo -e "${GREEN}${BOLD}3. 在手机浏览器中打开 http://localhost:8000${NC}"
+echo -e "${GREEN}${BOLD}4. 开始和AI聊天！${NC}"
+echo ""
+echo -e "${CYAN}${BOLD}💡 重要提示：${NC}"
+echo -e "${YELLOW}  📱 以后打开Termux会自动进入菜单${NC}"
+echo -e "${YELLOW}  🔄 如需重启SillyTavern，选择菜单中的启动选项${NC}"
+echo -e "${YELLOW}  🌐 聊天地址永远是：http://localhost:8000${NC}"
 
 log_info "安装摘要:"
 echo -e "${CYAN}  - 脚本版本: $SCRIPT_VERSION${NC}"
