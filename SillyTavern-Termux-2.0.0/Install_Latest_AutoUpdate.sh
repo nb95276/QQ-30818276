@@ -303,7 +303,6 @@ for i in {1..3}; do
         sleep 2
     fi
 done
-fi
 
 # ==== 步骤4：更新包管理器 ====
 show_progress 4 10 "正在更新系统组件，为安装做准备~"
