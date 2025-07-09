@@ -270,16 +270,16 @@ log_info "配置Termux镜像源为: $SELECTED_MIRROR"
 
 # 方法1：直接修改sources.list
 mkdir -p "$PREFIX/etc/apt"
-cat > "$PREFIX/etc/apt/sources.list" << EOF
-# 主仓库
-deb https://$SELECTED_MIRROR/termux/apt/termux-main stable main
-
-# 游戏仓库（可选）
-# deb https://$SELECTED_MIRROR/termux/apt/termux-games games stable
-
-# 科学仓库（可选）
-# deb https://$SELECTED_MIRROR/termux/apt/termux-science science stable
-EOF
+{
+    echo "# 主仓库"
+    echo "deb https://$SELECTED_MIRROR/termux/apt/termux-main stable main"
+    echo ""
+    echo "# 游戏仓库（可选）"
+    echo "# deb https://$SELECTED_MIRROR/termux/apt/termux-games games stable"
+    echo ""
+    echo "# 科学仓库（可选）"
+    echo "# deb https://$SELECTED_MIRROR/termux/apt/termux-science science stable"
+} > "$PREFIX/etc/apt/sources.list"
 
 # 方法2：设置chosen_mirrors（如果目录存在）
 if [ -d "$PREFIX/etc/termux/mirrors" ]; then
